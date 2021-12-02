@@ -3,6 +3,6 @@ class StartupSerializer < ActiveModel::Serializer
              :contact_rank, :inn, :people_count, :site_url, :presentation
 
   def presentation
-    rails_storage_proxy_path(object.presentation)
+    Rails.application.routes.url_helpers.rails_storage_proxy_path(object.presentation, only_path: true)
   end
 end
