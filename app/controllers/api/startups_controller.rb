@@ -42,6 +42,6 @@ class Api::StartupsController < ApplicationController
   private
 
   def startup_params
-    params.require(:startup).permit(:title, :description, :contact_name, :phone_number, :email, :direction)
+    params.require(:startup).permit(:title, :description, :contact_name, :phone_number, :email, :direction, :presentation)
   end
 end

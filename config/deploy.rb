@@ -9,7 +9,7 @@ set :deploy_to, '/rest/app'
 # Default value for :linked_files is []
 # append :linked_files, 'config/database.yml'
 
-append :linked_dirs, 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+append :linked_dirs, 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'storage'
 append :linked_files, 'config/master.key'
 
 # Default value for default_env is {}
