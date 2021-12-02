@@ -5,6 +5,8 @@ class StartupSerializer < ActiveModel::Serializer
   has_many :pilots
 
   def presentation
+    return if object.presentation.blank?
+
     Rails.application.routes.url_helpers.rails_storage_proxy_path(object.presentation, only_path: true)
   end
 end

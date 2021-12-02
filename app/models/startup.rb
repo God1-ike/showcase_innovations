@@ -2,6 +2,7 @@
 
 class Startup < ApplicationRecord
   include AASM
+  include StartupRepository
 
   has_one_attached :presentation
   has_many :pilots
