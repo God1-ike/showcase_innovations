@@ -24,6 +24,7 @@ class Startup < ApplicationRecord
   enumerize :organization_transport, in: ORGANIZATION_TRANSOPRT
 
   enumerize :business_segment, in: %w[B2B B2C B2G B2O]
+  enumerize :readiness, in: ["Идея", "Прототип", "Продукт"]
 
   aasm :state, column: :state do
     state :new, initial: true
