@@ -14,7 +14,7 @@ export function Welcome() {
             <Space direction="vertical">
                 <Button block onClick={setRole(ROLES.startup)}>Стартап</Button>
                 <Button block onClick={setRole(ROLES.manager)}>Менеджер</Button>
-                <Button block onClick={setRole(ROLES.customerIT)}>Заказчик из МТ</Button>
+                <Button block onClick={setRole(ROLES.customer)}>Заказчик из МТ</Button>
             </Space>
         </Space>
     </Layout>;
