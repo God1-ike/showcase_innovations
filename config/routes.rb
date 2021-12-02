@@ -6,6 +6,11 @@ Rails.application.routes.draw do
       patch :change_state, on: :member
     end
     resources :pilots, only: %i[create update destroy index show]
+
+    resource :stats, only: [] do
+      get :by_state
+      get :by_tags
+    end
   end
 
   match '/:path', to: 'welcome#index', via: :all, constraints: { path: /((?!rails).)*/ }
