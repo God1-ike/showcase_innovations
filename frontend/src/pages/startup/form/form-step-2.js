@@ -1,14 +1,7 @@
 import {
   Form,
   Input,
-  InputNumber,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
+  Radio
 } from 'antd';
 
 const { TextArea } = Input;
