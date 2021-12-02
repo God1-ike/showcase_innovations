@@ -37,7 +37,7 @@ class Pilot < ApplicationRecord
   # 6. closing_pilot_project => Закрытие пилотного проекта
   # 7. closed => Закрыт
 
-  aasm :state, column: :testing_phase do
+  aasm :testing_phase, column: :testing_phase do
     state :positioning_otkm, initial: true
     state :detailed_parameters, :preparation_for_testing, :pilot_testing, :report_generation,
           :closing_pilot_project, :closed
