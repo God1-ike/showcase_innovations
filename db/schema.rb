@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_215223) do
+ActiveRecord::Schema.define(version: 2021_12_02_220302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,12 @@ ActiveRecord::Schema.define(version: 2021_12_02_215223) do
     t.string "organization_transport"
     t.string "business_segment"
     t.string "readiness"
+    t.string "certification_requireness"
+    t.string "usage"
+    t.string "request_for_accelerator"
+    t.string "knowledge_source"
+    t.string "technologies_used"
+    t.string "usage_area"
   end
 
   create_table "tags", force: :cascade do |t|

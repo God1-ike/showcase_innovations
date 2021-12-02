@@ -63,6 +63,8 @@ class Api::StartupsController < ApplicationController
   def startup_params
     params.require(:startup).permit(:title, :description, :contact_name, :phone_number, :email, :direction, :presentation,
                                     :legal_entity_title, :contact_rank, :inn, :people_count, :site_url,
-                                    :telegram_url, :presentation_url, :organization_transport, :business_segment, :readiness)
+                                    :telegram_url, :presentation_url, :organization_transport, :business_segment,
+                                    :readiness, :certification_requireness, :usage, :request_for_accelerator, :knowledge_source,
+                                    :technologies_used)
   end
 end

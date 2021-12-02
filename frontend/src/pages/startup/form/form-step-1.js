@@ -13,7 +13,7 @@ export const FormStep1 = (
     <Form.Item name='people_count' label='Количество человек в организации'>
       <InputNumber placeholder='Укажите количество' />
     </Form.Item>
-    <Form.Item name='' label='Стадия готовности продукта'>
+    <Form.Item name='readiness' label='Стадия готовности продукта'>
         <Select>
             <Select.Option value="Идея">Идея</Select.Option>
             <Select.Option value="Прототип">Прототип</Select.Option>
