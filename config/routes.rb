@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       get :by_state
       get :by_tags
     end
+
+    resources :tags, only: %i[index]
   end
 
   match '/:path', to: 'welcome#index', via: :all, constraints: { path: /((?!rails).)*/ }

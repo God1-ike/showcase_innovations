@@ -10,4 +10,8 @@ class Api::StatsController < ApplicationController
 
     render json: stats
   end
+
+  def by_segment
+    render json: Startup.group(:business_segment).count
+  end
 end
