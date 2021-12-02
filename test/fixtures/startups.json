@@ -12,7 +12,8 @@
     "people_count": "4",
     "site_url": "traffic.ru",
     "telegram_url": "traffic.te",
-    "presentation_url": "traffic_presentation.pdf"
+    "presentation_url": "traffic_presentation.pdf",
+    "tags": ["Уникальный продукт", "Подготовка к пилотному тестированию", "В работе"]
   },
   {
     "title": "Road Vision", 
@@ -27,7 +28,8 @@
     "people_count": "5",
     "site_url": "road_vision.ru",
     "telegram_url": "road_vision.te",
-    "presentation_url": "road_vision_presentation.pdf"
+    "presentation_url": "road_vision_presentation.pdf",
+    "tags": ["Анализ воздуха", "В работе"]
   },
   {
     "title": "Пропускной пункт", 
@@ -42,7 +44,8 @@
     "people_count": "3",
     "site_url": "checkpoint.ru",
     "telegram_url": "checkpoint.te",
-    "presentation_url": "checkpoint_presentation.pdf"
+    "presentation_url": "checkpoint_presentation.pdf",
+    "tags": ["Позиционирование в ОТКМ", "В работе"]
   },
   {
     "title": "Фонарик", 
@@ -57,7 +60,8 @@
     "people_count": "5",
     "site_url": "lamp.ru",
     "telegram_url": "lamp.te",
-    "presentation_url": "lamp_presentation.pdf"
+    "presentation_url": "lamp_presentation.pdf",
+    "tags": ["Приостановлен", "Подготовка к пилотному тестированию", "В работе"]
   },
   {
     "title": "Air Guard", 
@@ -72,6 +76,7 @@
     "people_count": "4",
     "site_url": "air_guard.ru",
     "telegram_url": "air_guard.te",
-    "presentation_url": "air_guard_presentation.pdf"
+    "presentation_url": "air_guard_presentation.pdf",
+    "tags": ["Уникальный продукт", "В работе"]
   }
 ]
