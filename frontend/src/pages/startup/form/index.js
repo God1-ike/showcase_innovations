@@ -1,24 +1,36 @@
 import { useState } from 'react';
-import { Layout, Steps, Form, Button, Input } from 'antd';
+import {  useLocation } from 'wouter';
+import { Layout, Steps, Form, Button } from 'antd';
 import { FormStep1 } from './form-step-1';
 import { FormStep2 } from './form-step-2';
 import { FormStep3 } from './form-step-3';
 import { FormStep4 } from './form-step-4';
 import styles from './styles.module.css';
+import { HOST } from '../../../constants';
 
 const { Header, Content } = Layout;
 const { Step } = Steps;
 
 export function StartupForm() {
   const [step, setStep] = useState(0);
+  const [_, setLocation] = useLocation();
   const [form] = Form.useForm();
   const onChangeStep = (step) => {
     setStep(step);
   };
 
   const onFinish = (values) => {
-        console.log('Success:', values);
-      };
+    console.log('Success:', values);
+    setLocation('/success-send');
+    // fetch(`${HOST}/api/startups`, {
+    //   method: 'POST',
+    //   body: JSON.stringify({ startup: values }),
+    // })
+    //   .then(() => {
+
+    //   })
+    //   .catch(console.error);
+  };
 
   return (
     <Layout className={styles.layout}>
