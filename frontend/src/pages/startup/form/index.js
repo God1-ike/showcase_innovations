@@ -23,12 +23,17 @@ export function StartupForm() {
     console.log('Success:', values);
     fetch(`${HOST}/api/startups`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({ startup: values }),
     })
-      .then(() => {
+    .then(response=>{
+      if (response.ok) {
         setLocation('/success-send');
-      })
-      .catch(console.error);
+      }
+      console.error(response);
+    });
   };
 
   return (
