@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Router, Route } from 'wouter';
+import { Welcome } from './pages/welcome';
+import { StartupRouter } from './pages/startup/router';
+import { ROLES } from './constants';
+import { useRedirectByRole } from './hooks/redirect-by-role';
 
 function App() {
+  useRedirectByRole();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route path='/' component={Welcome} />
+      <StartupRouter />
+      <Router base={`/${ROLES.startup}`} component={Welcome} />
+      <Router base={`/${ROLES.manager}`} component={Welcome} />
+      <Router base={`/${ROLES.customer}`} component={Welcome} />
+      <Route>404, Not Found!</Route>
+    </Switch>
   );
 }
 
