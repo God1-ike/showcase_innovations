@@ -1,6 +1,7 @@
 class StartupSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :state, :contact_name, :phone_number, :email, :direction, :legal_entity_title,
-             :contact_rank, :inn, :people_count, :site_url, :presentation, :telegram_url, :presentation_url
+             :contact_rank, :inn, :people_count, :site_url, :presentation, :telegram_url, :presentation_url,
+             :organization_transport, :business_segment
 
   has_many :pilots
 
