@@ -20,10 +20,10 @@ class Startup < ApplicationRecord
   # 5. mostransproject => Мостранспроект
   # 6. ampp => АМПП
   ORGANIZATION_TRANSOPRT = %w[moscow_metro mosgortrans codd transportation_organizer mostransproject
-                              ampp nil].freeze
+                              ampp].freeze
   enumerize :organization_transport, in: ORGANIZATION_TRANSOPRT
-  
-  enumerize :business_segment, in: %w[B2B B2C B2G B2O nil]
+
+  enumerize :business_segment, in: %w[B2B B2C B2G B2O]
 
   aasm :state, column: :state do
     state :new, initial: true
