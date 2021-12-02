@@ -2,7 +2,8 @@
 
 class Startup < ApplicationRecord
   include AASM
-  include StartupRepository
+  include ::StartupRepository
+  extend Enumerize
 
   has_one_attached :presentation
   has_many :pilots
@@ -10,6 +11,19 @@ class Startup < ApplicationRecord
 
   has_many :startup_tags, dependent: :destroy
   has_many :tags, through: :startup_tags
+
+  # Список фаз тестирования:
+  # 1. moscow_metro => Московский метрополитен
+  # 2. mosgortrans => мосгорстранс
+  # 3. codd => ЦОДД
+  # 4. transportation_organizer => Организатор перевозок
+  # 5. mostransproject => Мостранспроект
+  # 6. ampp => АМПП
+  ORGANIZATION_TRANSOPRT = %w[moscow_metro mosgortrans codd transportation_organizer mostransproject
+                              ampp nil].freeze
+  enumerize :organization_transport, in: ORGANIZATION_TRANSOPRT
+  
+  enumerize :business_segment, in: %w[B2B B2C B2G B2O nil]
 
   aasm :state, column: :state do
     state :new, initial: true
