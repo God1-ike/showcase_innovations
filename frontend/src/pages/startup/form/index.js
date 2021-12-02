@@ -20,7 +20,6 @@ export function StartupForm() {
   };
 
   const onFinish = (values) => {
-    console.log('Success:', values);
     fetch(`${HOST}/api/startups`, {
       method: 'POST',
       headers: {
