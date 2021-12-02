@@ -39,6 +39,16 @@ class Api::StartupsController < ApplicationController
     render json: { status: :ok }
   end
 
+  def change_state
+    startup = Startup.find(params[:id])
+
+    if startup.aasm(:state).fire!(params[:state].to_sym)
+      render json: { status: :ok }
+    else
+      render json: startup.errors
+    end
+  end
+
   private
 
   def startup_params
