@@ -6,6 +6,7 @@ class Startup < ApplicationRecord
 
   has_one_attached :presentation
   has_many :pilots
+  has_many :comment, dependent: :nullify
 
   enumerize :direction, in: %i[]
 

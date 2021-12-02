@@ -2,6 +2,7 @@ class Pilot < ApplicationRecord
   include AASM
 
   belongs_to :startup
+  has_many :comment, dependent: :nullify
 
   aasm column: :state do
     state :in_work, initial: true
