@@ -2,20 +2,20 @@ class Api::StartupsController < ApplicationController
   def index
     startups = Startup.all
 
-    render json: startups
+    render json: startups, each_serializer: StartupSerializer
   end
 
   def show
     startup = Startup.find(params[:id])
 
-    render json: startup
+    render json: startup, serializer: StartupSerializer
   end
 
   def create
     startup = Startup.new(startup_params)
 
     if startup.save
-      render json: startup
+      render json: startup, serializer: StartupSerializer
     else
       render json: startup.errors
     end
@@ -25,7 +25,7 @@ class Api::StartupsController < ApplicationController
     startup = Startup.find(params[:id])
 
     if startup.update(startup_params)
-      render json: startup
+      render json: startup, serializer: StartupSerializer
     else
       render json: startup.errors
     end
