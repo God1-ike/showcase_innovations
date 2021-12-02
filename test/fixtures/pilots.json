@@ -1,0 +1,65 @@
+[
+  {
+    "startup_email": "traffic@mail.ru", 
+    "name": "Анализ загруженности движения транспорта",
+    "project_team": "Иваонов Иван Иванович, Филиппов Георгий Дмитрьевич, Щербаков Остап Лукьянович, Васильев Федор Ильяович",
+    "subordinate_org": "ООО Трафик аналитика",
+    "telegram_url": "traffic_1.te"
+  },
+  {
+    "startup_email": "traffic@mail.ru", 
+    "name": "Анализ торможения движения",
+    "project_team": "Иваонов Иван Иванович, Филиппов Георгий Дмитрьевич, Щербаков Остап Лукьянович",
+    "subordinate_org": "ООО Трафик аналитика",
+    "telegram_url": "traffic_2.te"
+  },
+  {
+    "startup_email": "traffic@mail.ru", 
+    "name": "Анализ аварийных участков движения",
+    "project_team": "Иваонов Иван Иванович, Филиппов Георгий Дмитрьевич, Васильев Федор Ильяович",
+    "subordinate_org": "ООО Трафик аналитика",
+    "telegram_url": "traffic_3.te"
+  },
+  {
+    "startup_email": "road_vision@mail.ru", 
+    "name": "Регулировине работы светофоров",
+    "project_team": "Денисов Даниил Максимович, Мишкин Гордей Данилович, Федотов Соломон Аристархович",
+    "subordinate_org": "ООО Дорожное зрение",
+    "telegram_url": "road_vision_1.te"
+  },
+  {
+    "startup_email": "road_vision@mail.ru", 
+    "name": "Анализ перемещающихся объектов по дороге",
+    "project_team": "Денисов Даниил Максимович, Буров Рудольф Михаилович, Симонова Доля Денисовна",
+    "subordinate_org": "ООО Дорожное зрение",
+    "telegram_url": "road_vision_2.te"
+  },
+  {
+    "startup_email": "checkpoint@mail.ru", 
+    "name": "Улучшение безопастности метрополитена(современный КПП)",
+    "project_team": "Соколов Елисей Федотович, Родионова Алира Куприяновна, Быков Лука Пётрович",
+    "subordinate_org": "ООО Трафик аналитика",
+    "telegram_url": "checkpoint_1.te"
+  },
+  {
+    "startup_email": "lamp@mail.ru", 
+    "name": "Светофор на солнечной энергии",
+    "project_team": "Макаров Эрнест Протасьевич, Константинов Виталий Семенович, Александрова Эллина Глебовна",
+    "subordinate_org": "ООО Дорожное зрение",
+    "telegram_url": "lamp_1.te"
+  },
+  {
+    "startup_email": "lamp@mail.ru", 
+    "name": "Беспроводные светофоры",
+    "project_team": "Макаров Эрнест Протасьевич, Одинцова Зара Юрьевна, Суворов Евгений Владленович",
+    "subordinate_org": "ООО Дорожное зрение",
+    "telegram_url": "lamp_2.te"
+  },
+  {
+    "startup_email": "air_guard@mail.ru", 
+    "name": "Станция анализа воздуха",
+    "project_team": "Носов Влас Куприянович, Филиппов Модест Адольфович, Горшков Всеволод Данилович, Третьяков Венедикт Онисимович",
+    "subordinate_org": "ООО Чистый город",
+    "telegram_url": "air_guard_1.te"
+  }
+]
