@@ -26,6 +26,7 @@ gem 'capistrano'
 gem 'capistrano-db-tasks', require: false
 gem 'capistrano-rails'
 gem 'enumerize'
+gem 'aasm'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
