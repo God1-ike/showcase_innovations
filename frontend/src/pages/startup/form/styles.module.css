@@ -1,0 +1,22 @@
+.header {
+    background-color: #fff;
+    height: 64px;
+    padding: 0 24px;
+}
+
+.content {
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-clip: content-box;
+}
+
+.layout {
+    min-height: 100vh;
+    background-color: transparent;
+}
+
+.steps {
+    max-width: 856px;
+    margin: 40px auto 32px;
+}
