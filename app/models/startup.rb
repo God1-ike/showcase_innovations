@@ -5,6 +5,7 @@ class Startup < ApplicationRecord
   extend Enumerize
 
   has_one_attached :presentation
+  has_many :pilots
 
   enumerize :direction, in: %i[]
 
