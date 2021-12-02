@@ -1,5 +1,5 @@
 class StartupSerializer < ActiveModel::Serializer
-  attributes :title, :description, :state, :contact_name, :phone_number, :email, :direction, :legal_entity_title,
+  attributes :id, :title, :description, :state, :contact_name, :phone_number, :email, :direction, :legal_entity_title,
              :contact_rank, :inn, :people_count, :site_url, :presentation
 
   def presentation
