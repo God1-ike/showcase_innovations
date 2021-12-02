@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {  useLocation } from 'wouter';
+import { useLocation } from 'wouter';
 import { Layout, Steps, Form, Button } from 'antd';
 import { FormStep1 } from './form-step-1';
 import { FormStep2 } from './form-step-2';
@@ -21,15 +21,14 @@ export function StartupForm() {
 
   const onFinish = (values) => {
     console.log('Success:', values);
-    setLocation('/success-send');
-    // fetch(`${HOST}/api/startups`, {
-    //   method: 'POST',
-    //   body: JSON.stringify({ startup: values }),
-    // })
-    //   .then(() => {
-
-    //   })
-    //   .catch(console.error);
+    fetch(`${HOST}/api/startups`, {
+      method: 'POST',
+      body: JSON.stringify({ startup: values }),
+    })
+      .then(() => {
+        setLocation('/success-send');
+      })
+      .catch(console.error);
   };
 
   return (
