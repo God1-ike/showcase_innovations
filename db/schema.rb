@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_173910) do
+ActiveRecord::Schema.define(version: 2021_12_02_184509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_12_02_173910) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "pilot_tags", force: :cascade do |t|
+    t.bigint "pilot_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pilot_id"], name: "index_pilot_tags_on_pilot_id"
+    t.index ["tag_id"], name: "index_pilot_tags_on_tag_id"
+  end
+
   create_table "pilots", force: :cascade do |t|
     t.bigint "startup_id"
     t.string "name"
@@ -55,6 +64,15 @@ ActiveRecord::Schema.define(version: 2021_12_02_173910) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "telegram_url"
     t.index ["startup_id"], name: "index_pilots_on_startup_id"
+  end
+
+  create_table "startup_tags", force: :cascade do |t|
+    t.bigint "startup_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["startup_id"], name: "index_startup_tags_on_startup_id"
+    t.index ["tag_id"], name: "index_startup_tags_on_tag_id"
   end
 
   create_table "startups", force: :cascade do |t|
@@ -76,6 +94,16 @@ ActiveRecord::Schema.define(version: 2021_12_02_173910) do
     t.string "presentation_url"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "pilot_tags", "pilots"
+  add_foreign_key "pilot_tags", "tags"
+  add_foreign_key "startup_tags", "startups"
+  add_foreign_key "startup_tags", "tags"
 end

@@ -2,6 +2,8 @@ class Pilot < ApplicationRecord
   include AASM
 
   belongs_to :startup
+  has_many :pilot_tags, dependent: :destroy
+  has_many :tags, through: :pilot_tags
 
   aasm column: :state do
     state :in_work, initial: true

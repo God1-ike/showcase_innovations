@@ -7,6 +7,9 @@ class Startup < ApplicationRecord
   has_one_attached :presentation
   has_many :pilots
 
+  has_many :startup_tags, dependent: :destroy
+  has_many :tags, through: :startup_tags
+
   enumerize :direction, in: %i[]
 
   aasm :state, column: :state do
