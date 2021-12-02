@@ -35,7 +35,7 @@ class Pilot < ApplicationRecord
   # 4. pilot_testing => Проведение пилотного тестирования
   # 5. report_generation => Формирование отчёта пилотном тестировании
   # 6. closing_pilot_project => Закрытие пилотного проекта
-  # 7. closed => Закрыт
+  # 7. set_testing_closed => Закрыт
 
   aasm :testing_phase, column: :testing_phase do
     state :positioning_otkm, initial: true
@@ -62,7 +62,7 @@ class Pilot < ApplicationRecord
       transitions to: :closing_pilot_project
     end
 
-    event :set_closed do
+    event :set_testing_closed do
       transitions to: :closed
     end
   end

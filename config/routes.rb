@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   namespace :api do
-    resources :startups, only: %i[create update destroy index show change_state]
+    resources :startups, only: %i[create update destroy index show] do
+      patch :change_state, on: :member
+    end
     resources :pilots, only: %i[create update destroy index show]
   end
 
