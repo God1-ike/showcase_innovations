@@ -6,7 +6,7 @@ class Pilot < ApplicationRecord
   has_many :pilot_tags, dependent: :destroy
   has_many :tags, through: :pilot_tags
 
-  aasm column: :state do
+  aasm :state, column: :state do
     state :in_work, initial: true
     state :suspended, :finished, :closed, :cancelled
 
@@ -37,7 +37,7 @@ class Pilot < ApplicationRecord
   # 6. closing_pilot_project => Закрытие пилотного проекта
   # 7. closed => Закрыт
 
-  aasm column: :testing_phase do
+  aasm :state, column: :testing_phase do
     state :positioning_otkm, initial: true
     state :detailed_parameters, :preparation_for_testing, :pilot_testing, :report_generation,
           :closing_pilot_project, :closed
