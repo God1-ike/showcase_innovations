@@ -3,6 +3,7 @@ import { HeaderContent } from './header-content.js'
 import styles from './styles.module.css';
 import { PhoneOutlined, MailOutlined, FileOutlined, DownloadOutlined, CommentOutlined } from '@ant-design/icons'
 import React, { useState, useEffect } from 'react'
+import { STATES } from '../../../constants.js'
 
 const { Meta } = Card;
 const { Text } = Typography;
@@ -44,7 +45,7 @@ export function StartupDetails(params) {
           offset={1}
           title={fetchData.title}
           className={styles.header}
-          tags={<Tag color="blue">{fetchData.state}</Tag>}
+          tags={<Tag color="blue">{STATES[fetchData.state]}</Tag>}
           extra={[
             <Button key="1" type="primary">
               Перевести в скоринг

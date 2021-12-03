@@ -17,3 +17,8 @@
 .pilot_cards {
   flex: 1
 }
+
+.visible_desc {
+  font-size: 22px;
+  max-width: 60%
+}

@@ -17,12 +17,6 @@ const routes = [
     component: ProjectList,
     icon: ProjectOutlined,
   },
-  {
-    title: 'Стартапы',
-    url: '/manager/startups',
-    component: StartupList,
-    icon: RocketOutlined,
-  },
 ];
 
 const RouterList = () => {
