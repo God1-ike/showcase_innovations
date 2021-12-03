@@ -15,7 +15,8 @@
     "presentation_url": "traffic_presentation.pdf",
     "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2G",
-    "organization_transport": "moscow_metro"
+    "organization_transport": "moscow_metro",
+    "readiness": "Продукт"
   },
   {
     "title": "Road Vision",
@@ -33,7 +34,8 @@
     "presentation_url": "road_vision_presentation.pdf",
     "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2G",
-    "organization_transport": "transportation_organizer"
+    "organization_transport": "transportation_organizer",
+    "readiness": "Продукт"
   },
   {
     "title": "Пропускной пункт",
@@ -51,7 +53,8 @@
     "presentation_url": "checkpoint_presentation.pdf",
     "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2G",
-    "organization_transport": "moscow_metro"
+    "organization_transport": "moscow_metro",
+    "readiness": "Продукт"
   },
   {
     "title": "Фонарик",
@@ -68,7 +71,8 @@
     "telegram_url": "lamp.te",
     "presentation_url": "lamp_presentation.pdf",
     "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
-    "business_segment": "B2B"
+    "business_segment": "B2B",
+    "readiness": "Продукт"
   },
   {
     "title": "Sleep Street",
@@ -86,7 +90,8 @@
     "presentation_url": "sleep_street_presentation.pdf",
     "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2B",
-    "organization_transport": "mosgortrans"
+    "organization_transport": "mosgortrans",
+    "readiness": "Продукт"
   },
   {
     "title": "Рога и Копыта",
@@ -104,7 +109,8 @@
     "presentation_url": "horns_and_hooves_presentation.pdf",
     "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2B",
-    "organization_transport": "mosgortrans"
+    "organization_transport": "mosgortrans",
+    "readiness": "Продукт"
   },
   {
     "title": "Скорость без границ",
@@ -122,6 +128,7 @@
     "presentation_url": "speed_without_limits_presentation.pdf",
     "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2B",
-    "organization_transport": "moscow_metro"
+    "organization_transport": "moscow_metro",
+    "readiness": "Продукт"
   }
 ]
