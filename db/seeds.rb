@@ -6,7 +6,7 @@ require 'json'
 tags = JSON.parse(File.read(Rails.root.join("test/fixtures/tags.json")))
 
 tags.each do |tags_info|
-  tag = Tag.find_or_initialize_by(name: tags_info[:name])
+  tag = Tag.find_or_initialize_by(name: tags_info["name"])
   tag.assign_attributes(tags_info)
   tag.save!
 end
@@ -15,23 +15,23 @@ startups = JSON.parse(File.read(Rails.root.join("test/fixtures/startups.json")))
 
 startups.each do |startup_info|
   tag_list = startup_info.delete("tags")
-  tag = Tag.find_by(name: tag_list)
-  startup = Startup.find_or_initialize_by(email: startup_info[:email])
+  tags = Tag.where(name: tag_list)
+  startup = Startup.find_or_initialize_by(email: startup_info["email"])
   startup.assign_attributes(startup_info)
+  startup.tags = tags
   startup.save!
-  StartupTag.create(tag: tag, startup: startup)
 end
 
 pilots = JSON.parse(File.read(Rails.root.join("test/fixtures/pilots.json")))
 
 pilots.each do |pilot_info|
   tag_list = pilot_info.delete("tags")
-  tag = Tag.find_by(name: tag_list)
+  tags = Tag.where(name: tag_list)
   startup = Startup.find_by(email: pilot_info.delete("startup_email"))
   pilot_info.merge!(startup: startup)
 
-  pilot = Pilot.find_or_initialize_by(name: pilot_info[:name])
+  pilot = Pilot.find_or_initialize_by(name: pilot_info["name"])
   pilot.assign_attributes(pilot_info)
+  pilot.tags = tags
   pilot.save!
-  PilotTag.create(tag: tag, pilot: pilot)
 end
