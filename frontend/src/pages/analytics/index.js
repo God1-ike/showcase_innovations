@@ -9,19 +9,19 @@ const grapthics = [
   {
     type: 'by_state',
     title: 'Статусы стартапов',
-    data: {},
+    data: [{x: 'Идея', y: 10}, {x: 'Продукт', y: 2}, {x: 'Прототип', y: 15}],
     span: 12,
   },
   {
     type: 'by_segment',
     title: 'Сегмент',
-    data: {},
+    data: [{x:'B2B', y: 11}, {x:'B2C', y: 12}, {x:'B2G', y: 1}, {x:'B2O', y: 6}],
     span: 12,
   },
   {
     type: 'by_organization',
     title: 'Организации МТ',
-    data: {},
+    data: [{x: 'Московский метрополитен', y: 23}, {x: 'Мосгорстранс', y: 12}, {x:'ЦОДД', y: 23}, {x:'Организатор перевозок', y: 23}, {x: "Мостранспроект", y: 10}],
     span: 12,
   },
   {
@@ -79,9 +79,7 @@ export function Analytics() {
                 <VictoryPie
                   standalone={false}
                   width={400} height={400}
-                  data={[
-                    { x: 1, y: 2 }, { x: 2, y: 5 }, { x: 3, y: 10 }
-                  ]}
+                  data={item.data}
                   innerRadius={68} labelRadius={100}
                   style={{ labels: { fontSize: 20, fill: "white" } }}
                 />
