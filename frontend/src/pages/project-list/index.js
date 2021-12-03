@@ -94,7 +94,7 @@ const ProjectCard = ({ project: p }) => {
         </div>,
         p.tags.reduce(
           (res, item) =>
-            item.tag_type.toLowerCase() === 'cферы применения'
+            item.tag_type.toLowerCase() === 'сферы применения'
               ? [...res, item.name]
               : res,
           []
