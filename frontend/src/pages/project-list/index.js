@@ -1,15 +1,84 @@
-import { useEffect, useState } from 'react';
-import { Layout, Input, Col, Select, Row, Button, Delimiter, Card } from 'antd';
+import {
+  Layout,
+  Input,
+  Col,
+  Select,
+  Row,
+  Tag,
+  Card,
+  Divider,
+  Typography,
+} from 'antd';
 import styles from './styles.module.css';
 const { Search } = Input;
+const { Header } = Layout;
 
-const { Header, Content } = Layout;
+const { Text } = Typography;
+
+const KeyValue = (key, value) => {
+  return (
+    <>
+      <div>
+        <Text type='secondary' style={{ fontSize: 12 }}>
+          {key}
+        </Text>
+      </div>
+      <Text>{value}</Text>
+    </>
+  );
+};
+
+const Tags = (tags) => {
+  return (
+    <Row gutter={[6, 6]}>
+      {(tags || []).map((tag) => (
+        <Col>
+          <Tag>{tag}</Tag>
+        </Col>
+      ))}
+    </Row>
+  );
+};
+
+const color = {
+  'проект': '#2F54EB',
+  'идея': '#FAAD14',
+  'прототип': '#52C41A',
+};
+
+const ProjectCard = ({ project }) => {
+  return (
+    <Card title={'Проект'} extra={<a href='#'>Посмотреть</a>}>
+      <div className={styles.cardheader}>
+        <a>Intelligent traffic</a>
+        <span className={styles.projectStatus}>
+        <span className={styles.projectStatusSpot} style={{backgroundColor: color['Проект'.toLowerCase()] }} />
+          Проект
+        </span>
+      </div>
+      {KeyValue('Организация МТ', 'Московский метрополитен')}
+      <Row gutter={30} style={{marginTop: 6}}>
+        <Col>{KeyValue('Человек в организации', 'От 20 до 100')}</Col>
+        <Col>{KeyValue('Сегменты рынка', 'B2G')}</Col>
+      </Row>
+      <Divider />
+      <div style={{margin: '8px 0'}}>
+        <Text>Технологии:</Text>
+      </div>
+      {Tags(['Mobile', 'Web', '5G'])}
+      <div style={{margin: '8px 0'}}>
+        <Text style={{margin: '8px 0'}}>Сферы применения:</Text>
+      </div>
+      {Tags(['Транспортные системы', 'Климат', 'Электоротранспорт'])}
+    </Card>
+  );
+};
 
 export function ProjectList() {
   return (
     <Layout className={styles.layout}>
       <Header className={styles.header}>
-        <h3>Стартапы</h3>
+        <h3>Проекты</h3>
         <div className={styles.search}>
           <Search
             placeholder='Введите название стартапа'
@@ -19,7 +88,7 @@ export function ProjectList() {
           />
         </div>
       </Header>
-      <div className={styles.row}>
+      <div className={`${styles.row} ${styles.bgbox}`}>
         <Row gutter={16}>
           <Col>
             <Select placeholder='Стадия готовности' optionFilterProp='children'>
@@ -44,30 +113,38 @@ export function ProjectList() {
               optionFilterProp='children'></Select>
           </Col>
         </Row>
-        <Row gutter={8} style={{marginTop: 16}}>
-          <Col><Button size='small'>Полезный продукт</Button></Col>
-          <Col><Button size='small'>Уникальный продукт</Button></Col>
-          <Col><Button size='small'>Трафик</Button></Col>
-          <Col><Button size='small'>Пробки</Button></Col>
+        <Row gutter={8} style={{ marginTop: 16 }}>
+          <Col>
+            <Tag>Полезный продукт</Tag>
+          </Col>
+          <Col>
+            <Tag>Уникальный продукт</Tag>
+          </Col>
+          <Col>
+            <Tag>Трафик</Tag>
+          </Col>
+          <Col>
+            <Tag>Пробки</Tag>
+          </Col>
         </Row>
       </div>
-      <Content className={styles.content}>
-        {Array(5).fill({
-          title:'Ant Design Pro',
-          readiness: 'Проект',
-          organization: 'Московский метрополитен',
-          people_count: 'От 20 до 100',
-          business_segment: 'B2B',
-        }).map(item=>(
-          <Card
-            title={'Стартап'}
-
-          >
-
-          </Card>
-        ))}
-      </Content>
+      <div className={styles.row}>
+        <Row gutter={[24, 24]}>
+          {Array(5)
+            .fill({
+              title: 'Ant Design Pro',
+              readiness: 'Проект',
+              organization: 'Московский метрополитен',
+              people_count: 'От 20 до 100',
+              business_segment: 'B2B',
+            })
+            .map((item) => (
+              <Col span={8}>
+                <ProjectCard />
+              </Col>
+            ))}
+        </Row>
+      </div>
     </Layout>
   );
 }
-
