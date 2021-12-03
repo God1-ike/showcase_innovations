@@ -2,9 +2,8 @@ import { Route, Link, Switch, Redirect } from 'wouter';
 import { useState, useCallback } from 'react';
 import { ProjectOutlined, RocketOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import { ROLES } from '../../constants';
 import { ProjectList } from '../project-list';
-import { StartupList } from '../startup-list';
+import { Analytics } from '../analytics';
 import Logo from '../../logo.svg';
 import styles from './styles.module.css';
 
@@ -16,6 +15,12 @@ const routes = [
     url: '/manager/projects',
     component: ProjectList,
     icon: ProjectOutlined,
+  },
+  {
+    title: 'Аналитика',
+    url: '/manager/analytics',
+    component: Analytics,
+    icon: RocketOutlined,
   },
 ];
 
