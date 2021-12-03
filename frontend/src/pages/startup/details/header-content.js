@@ -7,7 +7,7 @@ const { Paragraph } = Typography;
 export const HeaderContent = (params) => (
   <>
     <Paragraph className={styles.visible_desc}>
-      Продукт представляет собой мобильную систему, способную проводить дезинфекционную обработку широкого спектра объектов как на поверхности, так и в глубине их содержимого.
+    {params.fetchData.description}
     </Paragraph>
     <Row justify="start">
       <Col flex="1">
