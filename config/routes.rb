@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
 
     resources :tags, only: %i[index]
+    resources :pilot_comments, only: %i[index create]
+    resources :startup_comments, only: %i[index create]
   end
 
   match '/:path', to: 'welcome#index', via: :all, constraints: { path: /((?!rails).)*/ }
