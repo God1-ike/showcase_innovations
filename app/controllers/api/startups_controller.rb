@@ -1,7 +1,7 @@
 class Api::StartupsController < ApplicationController
   def index
     startups = Startup.all
-    tags, state, people_count, organization_transport, business_segment, readiness = params.to_h.values_at(
+    tags, state, people_count, organization_transport, business_segment, readiness = params.values_at(
       :tags, :state, :people_count, :organization_transport, :business_segment, :readiness
     )
     startups = startups.by_tags(tags) if tags.present?
