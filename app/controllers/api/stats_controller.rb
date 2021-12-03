@@ -9,7 +9,7 @@ class Api::StatsController < ApplicationController
                .select('COUNT(DISTINCT startups.id) as startup_count', 'tags.name', 'tags.id')
                .group('tags.id', 'tags.name')
 
-    render json: stats, serializer: nil
+    render json: stats, each_serializer: nil
   end
 
   def by_sphere_tags
@@ -18,7 +18,7 @@ class Api::StatsController < ApplicationController
                .select('COUNT(DISTINCT startups.id) as startup_count', 'tags.name', 'tags.id')
                .group('tags.id', 'tags.name')
 
-    render json: stats, serializer: nil
+    render json: stats, each_serializer: nil
   end
 
   def by_segment
