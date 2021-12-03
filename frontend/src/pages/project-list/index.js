@@ -54,9 +54,9 @@ const ProjectCard = ({ project: p }) => {
   return (
     <Card
       title={p.legal_entity_title}
-      extra={<Link to={`/startups/${p.id}`}>Посмотреть</Link>}>
+      extra={<Link to={`/startup/${p.id}`}>Посмотреть</Link>}>
       <div className={styles.cardheader}>
-        <Link href={`/startups/${p.id}`}>{p.title}</Link>
+        <Link href={`/startup/${p.id}`}>{p.title}</Link>
         <span className={styles.projectStatus}>
           <span
             className={styles.projectStatusSpot}
