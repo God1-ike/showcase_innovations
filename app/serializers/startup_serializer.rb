@@ -4,6 +4,8 @@ class StartupSerializer < ActiveModel::Serializer
              :organization_transport, :business_segment, :readiness
 
   has_many :pilots
+  has_many :tags
+  has_many :comments
 
   def presentation
     return if object.presentation.blank?
