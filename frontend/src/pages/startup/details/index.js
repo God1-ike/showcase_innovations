@@ -9,7 +9,7 @@ const { Meta } = Card;
 const { Text } = Typography;
 const routes = [
   {
-    path: 'index',
+    path: '/',
     breadcrumbName: 'First-level Menu',
   },
   {
@@ -65,7 +65,7 @@ export function StartupDetails(params) {
                   {
                     fetchData.pilots?.map(
                       (pilot) =>
-                        <Card style={{flex: 1}}>
+                        <Card style={{flex: 1}} key={pilot.name}>
                           <div>
                             <p>
                               <Space direction="horizontal">
