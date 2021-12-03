@@ -83,9 +83,24 @@ const ProjectCard = ({ project: p }) => {
   );
 };
 
+const getTagsParams = tags => {
+  const query = Object.entries(tags).reduce((res,[tag, isSelected])=> {
+    if(isSelected) {
+      res = res + '&tags[]=' + tag;
+    }
+    return res;
+  } ,'');
+  return query ? query.replace('&','?') : '';
+}
+
 export function ProjectList() {
   const [startups, setStartups] = useState([]);
   const [filterTags, setFilterTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState({});
+
+  const handleClickTag = (tag) => () => {
+    setSelectedTags({...selectedTags, [tag]: !selectedTags[tag]});
+  }
 
   useEffect(() => {
     fetch(`${HOST}/api/tags`)
@@ -108,7 +123,7 @@ export function ProjectList() {
   }, []);
 
   useEffect(() => {
-    fetch(`${HOST}/api/startups`)
+    fetch(`${HOST}/api/startups${getTagsParams(selectedTags)}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -116,7 +131,7 @@ export function ProjectList() {
         console.error(response);
       })
       .then(setStartups);
-  }, []);
+  }, [selectedTags]);
 
   return (
     <Layout className={styles.layout}>
@@ -169,7 +184,7 @@ export function ProjectList() {
           {(filterTags['технологии'] || []).map((tag) => {
             return (
               <Col key={tag}>
-                <Tag style={{ marginRight: 0 }}>{tag}</Tag>
+                <Tag onClick={handleClickTag(tag)} color={selectedTags[tag] ? 'cyan' : 'default'}  style={{ marginRight: 0 }}>{tag}</Tag>
               </Col>
             );
           })}
@@ -181,7 +196,7 @@ export function ProjectList() {
           {(filterTags['сферы применения'] || []).map((tag) => {
             return (
               <Col key={tag}>
-                <Tag style={{ marginRight: 0 }}>{tag}</Tag>
+                <Tag onClick={handleClickTag(tag)} color={selectedTags[tag] ? 'cyan' : 'default'} style={{ marginRight: 0 }}>{tag}</Tag>
               </Col>
             );
           })}
