@@ -9,8 +9,11 @@ Rails.application.routes.draw do
 
     resource :stats, only: [] do
       get :by_state
-      get :by_tags
+      get :by_tech_tags
+      get :by_sphere_tags
       get :by_organization
+      get :by_segment
+      get :by_people_count
     end
 
     resources :tags, only: %i[index]
