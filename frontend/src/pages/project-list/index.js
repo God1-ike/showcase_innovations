@@ -85,6 +85,27 @@ const ProjectCard = ({ project: p }) => {
 
 export function ProjectList() {
   const [startups, setStartups] = useState([]);
+  const [filterTags, setFilterTags] = useState([]);
+
+  useEffect(() => {
+    fetch(`${HOST}/api/tags`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        console.error(response);
+      })
+      .then((tags) =>
+        setFilterTags(
+          (tags || []).reduce((res, tag) => {
+            res[tag.tag_type.toLowerCase()] = res[tag.tag_type.toLowerCase()]
+              ? [...res[tag.tag_type.toLowerCase()], tag.name]
+              : [tag.name];
+            return res;
+          }, {})
+        )
+      );
+  }, []);
 
   useEffect(() => {
     fetch(`${HOST}/api/startups`)
@@ -144,18 +165,26 @@ export function ProjectList() {
         <div style={{ marginTop: 20, marginBottom: 8 }}>
           <Text>Технологии</Text>
         </div>
-        <Row gutter={[6, 6]}>
-          <Col>
-            <Tag style={{ marginRight: 0 }}>Полезный продукт</Tag>
-          </Col>
+        <Row gutter={[6, 6]} style={{overflow: 'hidden', height:24}}>
+          {(filterTags['технологии'] || []).map((tag) => {
+            return (
+              <Col key={tag}>
+                <Tag style={{ marginRight: 0 }}>{tag}</Tag>
+              </Col>
+            );
+          })}
         </Row>
         <div style={{ marginTop: 20, marginBottom: 8 }}>
           <Text>Сферы применения</Text>
         </div>
-        <Row gutter={[6, 6]}>
-          <Col>
-            <Tag style={{ marginRight: 0 }}>Полезный продукт</Tag>
-          </Col>
+        <Row gutter={[6, 6]} style={{overflow: 'hidden', height:24}}>
+          {(filterTags['сферы применения'] || []).map((tag) => {
+            return (
+              <Col key={tag}>
+                <Tag style={{ marginRight: 0 }}>{tag}</Tag>
+              </Col>
+            );
+          })}
         </Row>
       </div>
       <div className={styles.row}>
