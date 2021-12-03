@@ -31,7 +31,7 @@
     "site_url": "road_vision.ru",
     "telegram_url": "road_vision.te",
     "presentation_url": "road_vision_presentation.pdf",
-    "tags": ["Анализ воздуха", "В работе"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2G",
     "organization_transport": "transportation_organizer"
   },
@@ -49,7 +49,7 @@
     "site_url": "checkpoint.ru",
     "telegram_url": "checkpoint.te",
     "presentation_url": "checkpoint_presentation.pdf",
-    "tags": ["Позиционирование в ОТКМ", "В работе"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2G",
     "organization_transport": "moscow_metro"
   },
@@ -67,7 +67,7 @@
     "site_url": "lamp.ru",
     "telegram_url": "lamp.te",
     "presentation_url": "lamp_presentation.pdf",
-    "tags": ["Приостановлен", "Подготовка к пилотному тестированию", "В работе"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2B"
   },
   {
@@ -84,7 +84,7 @@
     "site_url": "sleep_street.ru",
     "telegram_url": "sleep_street.te",
     "presentation_url": "sleep_street_presentation.pdf",
-    "tags": ["Уникальный продукт", "Проведение пилотного проекта"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2B",
     "organization_transport": "mosgortrans"
   },
@@ -102,7 +102,7 @@
     "site_url": "horns_and_hooves.ru",
     "telegram_url": "horns_and_hooves.te",
     "presentation_url": "horns_and_hooves_presentation.pdf",
-    "tags": ["Анализ воздуха", "Полезный продукт", "В работе"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2B",
     "organization_transport": "mosgortrans"
   },
@@ -120,7 +120,7 @@
     "site_url": "speed_without_limits.ru",
     "telegram_url": "speed_without_limits.te",
     "presentation_url": "speed_without_limits_presentation.pdf",
-    "tags": ["Уникальный продукт", "В работе"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2B",
     "organization_transport": "moscow_metro"
   }
