@@ -13,7 +13,7 @@
     "site_url": "traffic.ru",
     "telegram_url": "traffic.te",
     "presentation_url": "traffic_presentation.pdf",
-    "tags": ["Уникальный продукт", "Подготовка к пилотному тестированию", "В работе"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
     "business_segment": "B2G",
     "organization_transport": "moscow_metro"
   },
