@@ -1,21 +1,22 @@
-import { Switch, Router, Route } from 'wouter';
+import { Switch, Route } from 'wouter';
 import { Welcome } from './pages/welcome';
 import { StartupRouter } from './pages/startup/router';
 import { CustomerRouter } from './pages/customer/router';
 import { ManagerRouter } from './pages/manager/router';
-import { ROLES } from './constants';
 import { useRedirectByRole } from './hooks/redirect-by-role';
+
+import { StartupForm } from './pages/startup/form';
+import { SuccessForm } from './pages/startup/success-form';
 
 function App() {
   useRedirectByRole();
   return (
     <Switch>
       <Route path='/' component={Welcome} />
-      <StartupRouter />
-      <Router base={`/${ROLES.startup}`} component={Welcome} />
-      <Router base={`/${ROLES.manager}`} component={ManagerRouter} />
-      <Router base={`/${ROLES.customer}`} component={CustomerRouter} />
-      <Route>404, Not Found!</Route>
+      <Route path='/startup' component={StartupForm} />
+      <Route path='/startup/success-send' component={SuccessForm} />
+      {CustomerRouter}
+      <Route base='/manager' component={ManagerRouter}></Route>
     </Switch>
   );
 }

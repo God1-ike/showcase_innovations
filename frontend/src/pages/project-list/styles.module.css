@@ -1,0 +1,35 @@
+.header {
+    background-color: #fff;
+    height: auto;
+    padding: 0 24px;
+}
+
+.content {
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: #fff;
+    background-clip: content-box;
+    display: flex;
+}
+
+.layout {
+    min-height: 100vh;
+    background-color: transparent;
+}
+
+.box {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.search {
+    max-width: 520px;
+    margin: 18px auto 0;
+}
+
+.row {
+    padding: 24px;
+    margin: 24px 24px 0;
+    background-color: #fff;
+}

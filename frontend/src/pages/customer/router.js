@@ -1,8 +1,5 @@
-import { Router, Route, Redirect } from 'wouter';
-import { ROLES } from '../../constants';
+import { Route } from 'wouter';
 
-export function CustomerRouter () {
-    return <Router base={`/${ROLES.customer}`}>
-        <Route path='/'>customer</Route>
-    </Router>;
-}
+export const CustomerRouter = <Route path='/customer'>
+        'customer'
+    </Route>;
