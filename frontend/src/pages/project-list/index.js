@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'wouter';
+
 import {
   Layout,
   Input,
@@ -10,6 +13,7 @@ import {
   Typography,
 } from 'antd';
 import styles from './styles.module.css';
+import { HOST } from '../../constants';
 const { Search } = Input;
 const { Header } = Layout;
 
@@ -33,7 +37,7 @@ const Tags = (tags) => {
     <Row gutter={[6, 6]}>
       {(tags || []).map((tag) => (
         <Col>
-          <Tag>{tag}</Tag>
+          <Tag style={{ marginRight: 0 }}>{tag}</Tag>
         </Col>
       ))}
     </Row>
@@ -41,33 +45,38 @@ const Tags = (tags) => {
 };
 
 const color = {
-  'проект': '#2F54EB',
-  'идея': '#FAAD14',
-  'прототип': '#52C41A',
+  продукт: '#2F54EB',
+  идея: '#FAAD14',
+  прототип: '#52C41A',
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project: p }) => {
   return (
-    <Card title={'Проект'} extra={<a href='#'>Посмотреть</a>}>
+    <Card
+      title={p.legal_entity_title}
+      extra={<Link to={`/startups/${p.id}`}>Посмотреть</Link>}>
       <div className={styles.cardheader}>
-        <a>Intelligent traffic</a>
+        <Link href={`/startups/${p.id}`}>{p.title}</Link>
         <span className={styles.projectStatus}>
-        <span className={styles.projectStatusSpot} style={{backgroundColor: color['Проект'.toLowerCase()] }} />
-          Проект
+          <span
+            className={styles.projectStatusSpot}
+            style={{ backgroundColor: color[p.readiness?.toLowerCase()] }}
+          />
+          {p.readiness}
         </span>
       </div>
-      {KeyValue('Организация МТ', 'Московский метрополитен')}
-      <Row gutter={30} style={{marginTop: 6}}>
-        <Col>{KeyValue('Человек в организации', 'От 20 до 100')}</Col>
-        <Col>{KeyValue('Сегменты рынка', 'B2G')}</Col>
+      {KeyValue('Организация МТ', p.organization_transport)}
+      <Row gutter={30} style={{ marginTop: 6 }}>
+        <Col>{KeyValue('Человек в организации', p.people_count)}</Col>
+        <Col>{KeyValue('Сегменты рынка', p.business_segment)}</Col>
       </Row>
       <Divider />
-      <div style={{margin: '8px 0'}}>
+      <div style={{ margin: '8px 0' }}>
         <Text>Технологии:</Text>
       </div>
       {Tags(['Mobile', 'Web', '5G'])}
-      <div style={{margin: '8px 0'}}>
-        <Text style={{margin: '8px 0'}}>Сферы применения:</Text>
+      <div style={{ margin: '8px 0' }}>
+        <Text style={{ margin: '8px 0' }}>Сферы применения:</Text>
       </div>
       {Tags(['Транспортные системы', 'Климат', 'Электоротранспорт'])}
     </Card>
@@ -75,6 +84,19 @@ const ProjectCard = ({ project }) => {
 };
 
 export function ProjectList() {
+  const [startups, setStartups] = useState([]);
+
+  useEffect(() => {
+    fetch(`${HOST}/api/startups`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        console.error(response);
+      })
+      .then(setStartups);
+  }, []);
+
   return (
     <Layout className={styles.layout}>
       <Header className={styles.header}>
@@ -90,59 +112,59 @@ export function ProjectList() {
       </Header>
       <div className={`${styles.row} ${styles.bgbox}`}>
         <Row gutter={16}>
-          <Col>
-            <Select placeholder='Стадия готовности' optionFilterProp='children'>
+          <Col span={6}>
+            <Select
+              style={{ width: '100%' }}
+              placeholder='Стадия готовности'
+              optionFilterProp='children'>
               <Select.Option value='Идея'>Идея</Select.Option>
               <Select.Option value='Прототип'>Прототип</Select.Option>
               <Select.Option value='Продукт'>Продукт</Select.Option>
             </Select>
           </Col>
-          <Col>
+          <Col span={6}>
             <Select
+              style={{ width: '100%' }}
               placeholder='Организация МТ'
               optionFilterProp='children'></Select>
           </Col>
-          <Col>
+          <Col span={6}>
             <Select
+              style={{ width: '100%' }}
               placeholder='Человек в организации'
               optionFilterProp='children'></Select>
           </Col>
-          <Col>
+          <Col span={6}>
             <Select
+              style={{ width: '100%' }}
               placeholder='Сегменты рынка'
               optionFilterProp='children'></Select>
           </Col>
         </Row>
-        <Row gutter={8} style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 20, marginBottom: 8 }}>
+          <Text>Технологии</Text>
+        </div>
+        <Row gutter={[6, 6]}>
           <Col>
-            <Tag>Полезный продукт</Tag>
+            <Tag style={{ marginRight: 0 }}>Полезный продукт</Tag>
           </Col>
+        </Row>
+        <div style={{ marginTop: 20, marginBottom: 8 }}>
+          <Text>Сферы применения</Text>
+        </div>
+        <Row gutter={[6, 6]}>
           <Col>
-            <Tag>Уникальный продукт</Tag>
-          </Col>
-          <Col>
-            <Tag>Трафик</Tag>
-          </Col>
-          <Col>
-            <Tag>Пробки</Tag>
+            <Tag style={{ marginRight: 0 }}>Полезный продукт</Tag>
           </Col>
         </Row>
       </div>
       <div className={styles.row}>
         <Row gutter={[24, 24]}>
-          {Array(5)
-            .fill({
-              title: 'Ant Design Pro',
-              readiness: 'Проект',
-              organization: 'Московский метрополитен',
-              people_count: 'От 20 до 100',
-              business_segment: 'B2B',
-            })
-            .map((item) => (
-              <Col span={8}>
-                <ProjectCard />
-              </Col>
-            ))}
+          {(startups || []).map((item) => (
+            <Col span={8}>
+              <ProjectCard project={item} />
+            </Col>
+          ))}
         </Row>
       </div>
     </Layout>
