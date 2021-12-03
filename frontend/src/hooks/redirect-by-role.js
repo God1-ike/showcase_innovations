@@ -6,6 +6,6 @@ export function useRedirectByRole (...conditions) {
     useEffect(() => {
         const role = sessionStorage.getItem('role');
         const redirectPath = role ? `/${role}` : '/';
-        setLocation(redirectPath);
+        // setLocation(redirectPath);
     }, conditions);
 }

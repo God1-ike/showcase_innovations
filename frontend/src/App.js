@@ -7,6 +7,7 @@ import { useRedirectByRole } from './hooks/redirect-by-role';
 
 import { StartupForm } from './pages/startup/form';
 import { SuccessForm } from './pages/startup/success-form';
+import { StartupDetails } from './pages/startup/details';
 
 function App() {
   useRedirectByRole();
@@ -15,6 +16,7 @@ function App() {
       <Route path='/' component={Welcome} />
       <Route path='/startup' component={StartupForm} />
       <Route path='/startup/success-send' component={SuccessForm} />
+      <Route path={'/startup/details-page'} component={StartupDetails} />
       {CustomerRouter}
       <Route base='/manager' component={ManagerRouter}></Route>
     </Switch>
