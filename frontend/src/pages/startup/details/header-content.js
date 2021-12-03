@@ -3,7 +3,7 @@ import { Typography, Row, Col } from 'antd'
 
 const { Paragraph } = Typography;
 
-export const HeaderContent = (
+export const HeaderContent = (params) => (
   <>
     <Paragraph>
       Продукт представляет собой мобильную систему, способную проводить дезинфекционную обработку широкого спектра объектов как на поверхности, так и в глубине их содержимого.
@@ -11,17 +11,17 @@ export const HeaderContent = (
     <Row justify="start">
       <Col flex="auto">
         <TeamOutlined />
-        <span> 20</span>
+        <span> {params.fetchData.people_count}</span>
       </Col>
 
       <Col flex="auto">
         <GlobalOutlined />
-        <a><span> https://google.com</span></a>
+        <a><span> {params.fetchData.site_url}</span></a>
       </Col>
 
       <Col flex="auto">
         <FundProjectionScreenOutlined />
-        <a><span> https://youtu.be/DLzxrzFCyOs?t=43</span></a>
+        <a><span> {params.fetchData.presentation_url}</span></a>
       </Col>
 
       <Col flex="auto">

@@ -16,7 +16,7 @@ function App() {
       <Route path='/' component={Welcome} />
       <Route path='/startup' component={StartupForm} />
       <Route path='/startup/success-send' component={SuccessForm} />
-      <Route path={'/startup/details-page'} component={StartupDetails} />
+      <Route path={'/startup/:id'} component={StartupDetails} />
       {CustomerRouter}
       <Route base='/manager' component={ManagerRouter}></Route>
     </Switch>

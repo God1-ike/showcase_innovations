@@ -9,3 +9,11 @@
 .margin_top {
   margin-top: 20px
 }
+
+.pilot_space {
+  justify-content: space-around;
+}
+
+.pilot_cards {
+  flex: 1
+}

@@ -1,10 +1,9 @@
 import {  Layout, PageHeader, Menu, Dropdown, Button, Tag, Typography, Row, Col, Card, Divider, Space } from 'antd';
 import { HeaderContent } from './header-content.js'
 import styles from './styles.module.css';
-import { PhoneOutlined, MailOutlined, FileOutlined, DownloadOutlined } from '@ant-design/icons'
+import { PhoneOutlined, MailOutlined, FileOutlined, DownloadOutlined, CommentOutlined } from '@ant-design/icons'
 import React, { useState, useEffect } from 'react'
 
-const { Header, Footer, Sider, Content } = Layout;
 const { Meta } = Card;
 const { Text } = Typography;
 const routes = [
@@ -28,17 +27,14 @@ const ContentR = ({ children }) => (
   </Row>
 );
 
-export function StartupDetails() {
-  const [fetchData, setFetchData] = useState({});
+export function StartupDetails(params) {
+  const [fetchData, setFetchData] = useState({title: '', tags: []});
 
   useEffect(()=>{
-    fetch('http://37.143.12.141/api/startups/8')
+    fetch(`http://37.143.12.141/api/startups/${params.params.id}`)
+    .then(response => response.json())
     .then(response=>{
-        if(response.ok) {
-            setFetchData(response.json());
-            console.log(fetchData)
-        }
-        console.error(response);
+        setFetchData(response)
     })
 },[])
 
@@ -46,9 +42,9 @@ export function StartupDetails() {
     <Layout>
         <PageHeader
           offset={1}
-          title="Lorem ipsum"
+          title={fetchData.title}
           className={styles.header}
-          tags={<Tag color="blue">Скрининг</Tag>}
+          tags={<Tag color="blue">{fetchData.state}</Tag>}
           extra={[
             <Button key="1" type="primary">
               Перевести в скоринг
@@ -57,79 +53,104 @@ export function StartupDetails() {
           avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
           breadcrumb={{ routes }}
         >
-          <ContentR>{HeaderContent}</ContentR>
+          <ContentR><HeaderContent fetchData={fetchData}/></ContentR>
         </PageHeader>
 
         <Row className={styles.margin_top}>
           <Col span={16} offset={1} >
             <Layout>
-              <Card title="Комментарии" bordered={false}>
-                <div>
-                  <p>
-                    <Space direction="horizontal">
-                      <Text>Иванов Иван</Text>
-                      <Text type="secondary">Cтартапер</Text>
-                    </Space>
-                  </p>
+              <Card title="Пилоты" bordered={false} className={styles.pilot_space}>
+                <Space size={[3,5]} align='center'  wrap>
+                  {
+                    fetchData.pilots?.map(
+                      (pilot) =>
+                        <Card style={{flex: 1}}>
+                          <div>
+                            <p>
+                              <Space direction="horizontal">
+                                <Text>{pilot.name}</Text>
+                              </Space>
+                            </p>
 
-                  <p>
-                    <Text type="secondary">
-                      Lorem ipssum doloor sit amet
-                    </Text>
-                  </p>
-                  <p>
-                    <Text type="secondary">
-                      12:22:45
-                    </Text>
-                  </p>
-                </div>
-                <Divider />
-                <div>
-                  <p>
-                    <Space direction="horizontal">
-                      <Text>Иванов Иван</Text>
-                      <Text type="secondary">Cтартапер</Text>
-                    </Space>
-                  </p>
+                            <p>
+                              <Space direction="horizontal">
+                                <Text type="secondary">
+                                  Стадия готовности
+                                </Text>
+                                <Text>
+                                  {pilot.state}
+                                </Text>
+                              </Space>
+                            </p>
+                            <p>
+                              <Space direction="horizontal">
+                                <Text type="secondary">
+                                  Человек в организации
+                                </Text>
+                                <Text>
+                                  {fetchData.people_count}
+                                </Text>
+                              </Space>
+                            </p>
+                            <p>
+                              <Space direction="horizontal">
+                                <Text type="secondary">
+                                  Сегмент рынка
+                                </Text>
+                                <Text>
+                                  {  ['B2B', 'B2C', 'B2G', 'B2O'][Math.floor(Math.random() * 3)] }
+                                </Text>
+                              </Space>
+                            </p>
+                          </div>
+                        </Card>
+                    )
+                  }
+                </Space>
+              </Card>
 
-                  <p>
-                    <Text type="secondary">
-                      Lorem ipssum doloor sit amet
-                    </Text>
-                  </p>
-                  <p>
-                    <Text type="secondary">
-                      12:22:45
-                    </Text>
-                  </p>
-                </div>
+              <Card title="Комментарии" bordered={false} className={styles.margin_top}>
+                {
+                  fetchData.comments?.map(
+                    (comment) =>
+                      <>
+                        <div>
+                          <p>
+                            <Space direction="horizontal">
+                              <Text>{comment.author}</Text>
+                              <Text type="secondary">Cтартапер</Text>
+                            </Space>
+                          </p>
+
+                          <p>
+                            <Text type="secondary">
+                              {comment.description}
+                            </Text>
+                          </p>
+                          <p>
+                            <Text type="secondary">
+                              12:22:45
+                            </Text>
+                          </p>
+                        </div>
+                        <Divider />
+                      </>
+                  )
+                }
               </Card>
             </Layout>
           </Col>
 
           <Col span={5} offset={1}>
             <Card title="Контакты" bordered={false}>
-              <Meta title="Иванов Иван Иванович" description="Руководитель проекта" />
+              <Meta title={fetchData.contact_name} description={fetchData.contact_rank} />
               <p className={styles.margin_top}>
                 <PhoneOutlined />
-                <span> +79999999 </span>
+                <span> {fetchData.phone_number} </span>
               </p>
               <p>
                 <MailOutlined />
-                <span> hello@example.com </span>
-              </p>
-              <Divider />
-              <p>
-                <Space direction="vertical">
-                  <Text type="secondary">Юридическое наименование</Text>
-                  <Text>ООО СмартДжи</Text>
-                </Space>
-              </p>
-              <p>
-                <Space direction="vertical">
-                  <Text type="secondary">ИНН</Text>
-                  <Text>55555555</Text>
-                </Space>
+                <span> {fetchData.email} </span>
               </p>
             </Card>
 
@@ -137,7 +158,7 @@ export function StartupDetails() {
               <Row justify="space-between">
                 <Col>
                   <FileOutlined/>
-                  <span> Файлик</span>
+                  <span> Презентация</span>
                 </Col>
                 <Col>
                   <DownloadOutlined style={{color: 'blue'}}/>
@@ -146,7 +167,16 @@ export function StartupDetails() {
               <Row justify="space-between">
                 <Col>
                   <FileOutlined/>
-                  <span> Файлик</span>
+                  <span> Анализ рынка</span>
+                </Col>
+                <Col>
+                  <DownloadOutlined style={{color: 'blue'}}/>
+                </Col>
+              </Row>
+              <Row justify="space-between">
+                <Col>
+                  <FileOutlined/>
+                  <span> Финансовый отчет</span>
                 </Col>
                 <Col>
                   <DownloadOutlined style={{color: 'blue'}}/>
@@ -155,15 +185,23 @@ export function StartupDetails() {
             </Card>
 
             <Card title="Теги" bordered={false} className={styles.margin_top}>
-              <Tag closable>
-                Tag 1
-              </Tag>
-              <Tag closable>
-                Tag 2
-              </Tag>
-              <Tag closable>
-                Tag 3
-              </Tag>
+              {
+                fetchData.tags?.map(
+                  (tag) =>
+                  <Tag closable>
+                    {tag.name}
+                  </Tag>
+                )
+              }
+            </Card>
+
+            <Card title="Ссылки" bordered={false} className={styles.margin_top}>
+              <Row justify="space-between">
+                <Col>
+                  <CommentOutlined/>
+                  <a><span> https://t.me/@project/</span></a>
+                </Col>
+              </Row>
             </Card>
           </Col>
         </Row>
