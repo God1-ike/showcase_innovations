@@ -32,15 +32,18 @@ const KeyValue = (key, value) => {
   );
 };
 
-const Tags = (tags) => {
+const Tags = (Component, tags) => {
   return (
-    <Row gutter={[6, 6]}>
-      {(tags || []).map((tag) => (
-        <Col>
-          <Tag style={{ marginRight: 0 }}>{tag}</Tag>
-        </Col>
-      ))}
-    </Row>
+    <>
+      {tags.length ? Component : null}
+      <Row gutter={[6, 6]}>
+        {(tags || []).map((tag) => (
+          <Col>
+            <Tag style={{ marginRight: 0 }}>{tag}</Tag>
+          </Col>
+        ))}
+      </Row>
+    </>
   );
 };
 
@@ -71,27 +74,45 @@ const ProjectCard = ({ project: p }) => {
         <Col>{KeyValue('Сегменты рынка', p.business_segment)}</Col>
       </Row>
       <Divider />
-      <div style={{ margin: '8px 0' }}>
-        <Text>Технологии:</Text>
-      </div>
-      {Tags(['Mobile', 'Web', '5G'])}
-      <div style={{ margin: '8px 0' }}>
-        <Text style={{ margin: '8px 0' }}>Сферы применения:</Text>
-      </div>
-      {Tags(['Транспортные системы', 'Климат', 'Электоротранспорт'])}
+
+      {Tags(
+        <div style={{ margin: '8px 0' }}>
+          <Text>Технологии:</Text>
+        </div>,
+        p.tags.reduce(
+          (res, item) =>
+            item.tag_type.toLowerCase() === 'технологии'
+              ? [...res, item.name]
+              : res,
+          []
+        )
+      )}
+
+      {Tags(
+        <div style={{ margin: '8px 0' }}>
+          <Text style={{ margin: '8px 0' }}>Сферы применения:</Text>
+        </div>,
+        p.tags.reduce(
+          (res, item) =>
+            item.tag_type.toLowerCase() === 'cферы применения'
+              ? [...res, item.name]
+              : res,
+          []
+        )
+      )}
     </Card>
   );
 };
 
-const getTagsParams = tags => {
-  const query = Object.entries(tags).reduce((res,[tag, isSelected])=> {
-    if(isSelected) {
+const getTagsParams = (tags) => {
+  const query = Object.entries(tags).reduce((res, [tag, isSelected]) => {
+    if (isSelected) {
       res = res + '&tags[]=' + tag;
     }
     return res;
-  } ,'');
-  return query ? query.replace('&','?') : '';
-}
+  }, '');
+  return query ? query.replace('&', '?') : '';
+};
 
 export function ProjectList() {
   const [startups, setStartups] = useState([]);
@@ -99,8 +120,8 @@ export function ProjectList() {
   const [selectedTags, setSelectedTags] = useState({});
 
   const handleClickTag = (tag) => () => {
-    setSelectedTags({...selectedTags, [tag]: !selectedTags[tag]});
-  }
+    setSelectedTags({ ...selectedTags, [tag]: !selectedTags[tag] });
+  };
 
   useEffect(() => {
     fetch(`${HOST}/api/tags`)
@@ -180,11 +201,16 @@ export function ProjectList() {
         <div style={{ marginTop: 20, marginBottom: 8 }}>
           <Text>Технологии</Text>
         </div>
-        <Row gutter={[6, 6]} style={{overflow: 'hidden', height:24}}>
+        <Row gutter={[6, 6]} style={{ overflow: 'hidden', height: 24 }}>
           {(filterTags['технологии'] || []).map((tag) => {
             return (
               <Col key={tag}>
-                <Tag onClick={handleClickTag(tag)} color={selectedTags[tag] ? 'cyan' : 'default'}  style={{ marginRight: 0 }}>{tag}</Tag>
+                <Tag
+                  onClick={handleClickTag(tag)}
+                  color={selectedTags[tag] ? 'cyan' : 'default'}
+                  style={{ marginRight: 0 }}>
+                  {tag}
+                </Tag>
               </Col>
             );
           })}
@@ -192,11 +218,16 @@ export function ProjectList() {
         <div style={{ marginTop: 20, marginBottom: 8 }}>
           <Text>Сферы применения</Text>
         </div>
-        <Row gutter={[6, 6]} style={{overflow: 'hidden', height:24}}>
+        <Row gutter={[6, 6]} style={{ overflow: 'hidden', height: 24 }}>
           {(filterTags['сферы применения'] || []).map((tag) => {
             return (
               <Col key={tag}>
-                <Tag onClick={handleClickTag(tag)} color={selectedTags[tag] ? 'cyan' : 'default'} style={{ marginRight: 0 }}>{tag}</Tag>
+                <Tag
+                  onClick={handleClickTag(tag)}
+                  color={selectedTags[tag] ? 'cyan' : 'default'}
+                  style={{ marginRight: 0 }}>
+                  {tag}
+                </Tag>
               </Col>
             );
           })}
