@@ -13,10 +13,11 @@
     "site_url": "traffic.ru",
     "telegram_url": "traffic.te",
     "presentation_url": "traffic_presentation.pdf",
-    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
+    "tags": ["Городской транспорт"],
     "business_segment": "B2G",
     "organization_transport": "moscow_metro",
-    "readiness": "Продукт"
+    "readiness": "Продукт",
+    "state": "screening"
   },
   {
     "title": "Road Vision",
@@ -32,10 +33,11 @@
     "site_url": "road_vision.ru",
     "telegram_url": "road_vision.te",
     "presentation_url": "road_vision_presentation.pdf",
-    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
+    "tags": ["Транспортные системы", "Городской транспорт", "ML", "Безопасность"],
     "business_segment": "B2G",
     "organization_transport": "transportation_organizer",
-    "readiness": "Продукт"
+    "readiness": "Продукт",
+    "state": "expert_council"
   },
   {
     "title": "Пропускной пункт",
@@ -51,10 +53,11 @@
     "site_url": "checkpoint.ru",
     "telegram_url": "checkpoint.te",
     "presentation_url": "checkpoint_presentation.pdf",
-    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
+    "tags": ["Транспортные системы", "Городской транспорт", "Безопасность"],
     "business_segment": "B2G",
     "organization_transport": "moscow_metro",
-    "readiness": "Продукт"
+    "readiness": "Продукт",
+    "state": "screening"
   },
   {
     "title": "Фонарик",
@@ -70,9 +73,10 @@
     "site_url": "lamp.ru",
     "telegram_url": "lamp.te",
     "presentation_url": "lamp_presentation.pdf",
-    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
+    "tags": ["Транспортные системы"],
     "business_segment": "B2B",
-    "readiness": "Продукт"
+    "readiness": "Продукт",
+    "state": "expert_council"
   },
   {
     "title": "Sleep Street",
@@ -88,10 +92,11 @@
     "site_url": "sleep_street.ru",
     "telegram_url": "sleep_street.te",
     "presentation_url": "sleep_street_presentation.pdf",
-    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
+    "tags": ["Транспортные системы", "Городской транспорт", "AHD"],
     "business_segment": "B2B",
     "organization_transport": "mosgortrans",
-    "readiness": "Продукт"
+    "readiness": "Продукт",
+    "state": "screening"
   },
   {
     "title": "Рога и Копыта",
@@ -107,14 +112,15 @@
     "site_url": "horns_and_hooves.ru",
     "telegram_url": "horns_and_hooves.te",
     "presentation_url": "horns_and_hooves_presentation.pdf",
-    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
+    "tags": ["Климат"],
     "business_segment": "B2B",
     "organization_transport": "mosgortrans",
-    "readiness": "Продукт"
+    "readiness": "Продукт",
+    "state": "screening"
   },
   {
     "title": "Скорость без границ",
-    "description": " Метрополитен — один из основных видов городского пассажирского транспорта, многие станции которого являются памятниками истории, культуры, архитектуры и охраняются государством. Это один из быстрых способов перемещения, но мы можем его ускорить!",
+    "description": "Метрополитен — один из основных видов городского пассажирского транспорта, многие станции которого являются памятниками истории, культуры, архитектуры и охраняются государством. Это один из быстрых способов перемещения, но мы можем его ускорить!",
     "contact_name": "Блохин Архип Петрович",
     "direction": "Транспортные иновации",
     "phone_number": "88342103212",
@@ -126,9 +132,50 @@
     "site_url": "speed_without_limits.ru",
     "telegram_url": "speed_without_limits.te",
     "presentation_url": "speed_without_limits_presentation.pdf",
-    "tags": ["Транспортные системы", "Городской транспорт", "ML", "IP-vison"],
+    "tags": ["Транспортные системы", "Городской транспорт","5G"],
     "business_segment": "B2B",
     "organization_transport": "moscow_metro",
-    "readiness": "Продукт"
+    "readiness": "Продукт",
+    "state": "screening"
+  },
+  {
+    "title": "Скан сити",
+    "description": "Мобильная система сканирования и мониторинга качества городской среды.",
+    "contact_name": "Гайдар Михаил Петрович",
+    "direction": "Транспортные иновации",
+    "phone_number": "88342112343",
+    "email": "speed_without_limits@mail.ru",
+    "legal_entity_title": "ООО Мобил",
+    "contact_rank": "ТИМ менеджер",
+    "inn": "3664012777",
+    "people_count": "16",
+    "site_url": "scan_limits.ru",
+    "telegram_url": "scan_without_limits.te",
+    "presentation_url": "scan_without_limits_presentation.pdf",
+    "tags": ["5G"],
+    "business_segment": "B2B",
+    "organization_transport": "moscow_metro",
+    "readiness": "Продукт",
+    "state": "screening"
+  },
+  {
+    "title": "Источник",
+    "description": "Источники бесперебойного питания (ИБП) повышенной надежности.",
+    "contact_name": "Михайлов Лев Николаевич",
+    "direction": "Транспортные иновации",
+    "phone_number": "88342112666",
+    "email": "source_without_limits@mail.ru",
+    "legal_entity_title": "ООО Мобил",
+    "contact_rank": "ТИМ менеджер",
+    "inn": "3664012666",
+    "people_count": "2",
+    "site_url": "scan_limits.ru",
+    "telegram_url": "scan_without_limits.te",
+    "presentation_url": "scan_without_limits_presentation.pdf",
+    "tags": ["5G"],
+    "business_segment": "B2B",
+    "organization_transport": "moscow_metro",
+    "readiness": "Продукт",
+    "state": "piloting_program"
   }
 ]
