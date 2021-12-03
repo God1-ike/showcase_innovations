@@ -14,7 +14,8 @@
     "telegram_url": "traffic.te",
     "presentation_url": "traffic_presentation.pdf",
     "tags": ["Уникальный продукт", "Подготовка к пилотному тестированию", "В работе"],
-    "business_segment": "B2G"
+    "business_segment": "B2G",
+    "organization_transport": "moscow_metro"
   },
   {
     "title": "Road Vision",
@@ -31,7 +32,8 @@
     "telegram_url": "road_vision.te",
     "presentation_url": "road_vision_presentation.pdf",
     "tags": ["Анализ воздуха", "В работе"],
-    "business_segment": "B2G"
+    "business_segment": "B2G",
+    "organization_transport": "transportation_organizer"
   },
   {
     "title": "Пропускной пункт",
@@ -48,7 +50,8 @@
     "telegram_url": "checkpoint.te",
     "presentation_url": "checkpoint_presentation.pdf",
     "tags": ["Позиционирование в ОТКМ", "В работе"],
-    "business_segment": "B2G"
+    "business_segment": "B2G",
+    "organization_transport": "moscow_metro"
   },
   {
     "title": "Фонарик",
@@ -82,6 +85,7 @@
     "telegram_url": "air_guard.te",
     "presentation_url": "air_guard_presentation.pdf",
     "tags": ["Уникальный продукт", "В работе"],
-    "business_segment": "B2C"
+    "business_segment": "B2C",
+    "organization_transport": "codd"
   }
 ]

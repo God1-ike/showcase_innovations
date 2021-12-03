@@ -14,4 +14,8 @@ class Api::StatsController < ApplicationController
   def by_segment
     render json: Startup.group(:business_segment).count
   end
+
+  def by_organization
+    render json: Startup.group(:organization_transport).count
+  end
 end

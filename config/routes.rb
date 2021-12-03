@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resource :stats, only: [] do
       get :by_state
       get :by_tags
+      get :by_organization
     end
 
     resources :tags, only: %i[index]
